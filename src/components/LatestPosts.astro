@@ -1,0 +1,27 @@
+---
+import Section from './Section.astro';
+import Card from './Card.astro';
+import { MarkdownInstance } from 'astro';
+
+interface Props {
+	posts: MarkdownInstance<any>[];
+}
+
+const { posts } = Astro.props;
+---
+
+<Section>
+	<div class="flex justify-between pb-4">
+		<p class="text-2xl font-bold">Latest Posts</p>
+		<a href="/posts" class="underline hover:text-blue-600">all posts →</a>
+	</div>
+	<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2">
+		{
+			posts.map((post: any) => (
+				<div class="">
+					<Card post={post} />
+				</div>
+			))
+		}
+	</div>
+</Section>
