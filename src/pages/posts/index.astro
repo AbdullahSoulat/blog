@@ -19,6 +19,7 @@ allPosts.sort(sortPostsByDate);
 <Base head={{ title, description }}>
 	<Section><Heading title="Posts" /></Section>
 	<Section>
+	<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2">
 		{
 			allPosts.map((post: any) => (
 				<div class="mb-4 basis-1 last:mb-0">
@@ -26,5 +27,6 @@ allPosts.sort(sortPostsByDate);
 				</div>
 			))
 		}
+	</div>
 	</Section>
 </Base>
