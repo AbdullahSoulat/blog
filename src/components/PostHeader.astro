@@ -1,8 +1,6 @@
 ---
 import { formatDate } from '@/utils/data.util';
 import Section from './Section.astro';
-import Tags from './Tags.astro';
-import PinnedBadge from './PinnedBadge.astro';
 
 interface Props {
 	title: string;
@@ -17,7 +15,7 @@ interface Props {
 	};
 }
 
-const { title, pubDate, tags, minutesRead, img, isPinned = false } = Astro.props;
+const { title, pubDate, minutesRead, img,} = Astro.props;
 
 const formattedDate = formatDate(pubDate);
 ---
