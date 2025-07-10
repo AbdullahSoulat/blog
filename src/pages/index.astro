@@ -5,6 +5,7 @@ import Hero from '@/components/Hero.astro';
 import LatestPosts from '@/components/LatestPosts.astro';
 import { sortPostsByDate } from '@/utils/data.util';
 import { MarkdownInstance } from 'astro';
+import Contact from '@/components/Contact.astro';
 
 const { title } = AppConfig;
 const { description } = AppConfig;
@@ -19,4 +20,5 @@ const latestPosts = allPosts.slice(0, 4);
 <Base head={{ title, description }}>
 	<Hero />
 	<LatestPosts posts={latestPosts} />
+	<Contact/>
 </Base>
