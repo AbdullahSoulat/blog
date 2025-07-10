@@ -1,5 +1,6 @@
 ---
 import { formatDate } from '@/utils/data.util';
+import { Image } from 'astro:assets';
 
 interface Props {
 	post: any;
@@ -11,8 +12,13 @@ const { post } = Astro.props;
 <a href={post.url}>
 	<div class="text-sm border-2 border-neutral-950 flex flex-col text-gray-900 
 				dark:bg-stone-800 dark:text-white dark:bg-gray-900 dark:border-neutral-50">
-		<img
+		<Image
 			src={post.frontmatter.image.src}
+			alt={post.frontmatter.image.alt}
+			width={100}
+			height={100}
+			loading="lazy"
+			decoding="async"
 			class="aspect-16/9 object-cover w-full"
 		/>
 
