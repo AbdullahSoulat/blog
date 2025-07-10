@@ -4,7 +4,7 @@ title: "My First Blog: Let's play an AAA Game"
 pubDate: 2025-01-01
 description: "This is the first post of my new Astro blog."
 author: "nicdun"
-isPinned: true
+isPinned: false
 excerpt: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et
 image:
   src: "/images/black-myth-wukong.jpg"

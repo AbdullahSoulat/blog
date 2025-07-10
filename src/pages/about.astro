@@ -1,15 +1,20 @@
 ---
-import Hero from "@/components/Hero.astro";
-import { AppConfig } from "@/utils/AppConfig";
-import Section from "@/components/Section.astro";
-
-const { title } = AppConfig; 
+import Base from '@/layouts/Base.astro';
+import Section from '@/components/Section.astro';
+import { Image } from 'astro:assets';
 ---
 
-<Hero title={title} />
-
-<Section>
-	<div class="container mx-auto">
-		<h1 class="text-2xl font-bold">About</h1>
-	</div>
-</Section>
+<Base head={{ title: 'About', description: 'About me' }}>
+	<Section>
+        <div class="flex flex-col items-center justify-center min-h-[70vh] gap-4">
+			<div class="grid grid-cols-1 place-items-center md:grid-cols-3 gap-4">
+				<div class="flex flex-col gap-4">
+					<h1 class="text-4xl">About Me</h1>
+					<p>I was born and raised in Pakistan. I spent most of my life in a rural village. Then for my undergrad degree I moved to Hong Kong. I've attached one picture that I took in Pakistan and one that I took in Hong Kong (I'm sure you'll able to tell which one is which 🙂). Currently I'm studying engineering in HKUST (Hong Kong University of Science & Technology). Feel free to get in touch with me!</p>
+				</div>
+				<Image src="/images/hong-kong-image.jpg" alt="hong kong image" width="400" height="400" />
+				<Image src="/images/pakistan-image.jpg" alt="pakistan image" width="400" height="400" />
+			</div>
+		</div>
+	</Section>
+</Base>
