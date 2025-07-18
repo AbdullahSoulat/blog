@@ -1,0 +1,137 @@
+---
+// src/components/Comments.astro
+// Assuming you pass a 'postSlug' prop to this component
+interface Props {
+  postSlug: string;
+}
+const { postSlug } = Astro.props;
+---
+
+<div class="comments-section">
+  <h3>Leave a Comment</h3>
+  <form id="comment-form">
+    <input type="hidden" name="postSlug" value={postSlug} />
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required />
+    </div>
+    <div>
+      <label for="comment">Comment:</label>
+      <textarea id="comment" name="comment" rows="5" required></textarea>
+    </div>
+    <button type="submit">Submit Comment</button>
+  </form>
+
+  <h3>Comments</h3>
+  <ul id="comments-list">
+    </ul>
+</div>
+
+<script define:vars={{ postSlug }}>
+  const commentForm = document.getElementById("comment-form");
+  const commentsList = document.getElementById("comments-list");
+
+  // Function to fetch and display comments
+  async function fetchComments() {
+    try {
+      const response = await fetch(`/.netlify/functions/get-comments?postSlug=${postSlug}`);
+      const comments = await response.json();
+
+      commentsList.innerHTML = ""; // Clear existing comments
+      if (comments.length === 0) {
+        commentsList.innerHTML = "<li>No comments yet. Be the first!</li>";
+        return;
+      }
+
+      comments.forEach((comment) => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+          <strong>${comment.name}</strong> on ${new Date(comment.createdAt).toLocaleDateString()}
+          <p>${comment.comment}</p>
+        `;
+        commentsList.appendChild(li);
+      });
+    } catch (error) {
+      console.error("Error fetching comments:", error);
+      commentsList.innerHTML = "<li>Error loading comments.</li>";
+    }
+  }
+
+  // Handle form submission
+  commentForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(commentForm);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch("/.netlify/functions/add-comment", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        alert("Comment submitted successfully!");
+        commentForm.reset(); // Clear the form
+        fetchComments(); // Reload comments to show the new one
+      } else {
+        const errorData = await response.json();
+        alert(`Error: ${errorData.message || 'Failed to submit comment.'}`);
+      }
+    } catch (error) {
+      console.error("Error submitting comment:", error);
+      alert("An error occurred while submitting your comment.");
+    }
+  });
+
+  // Fetch comments when the page loads
+  fetchComments();
+</script>
+
+<style>
+  /* Add some basic styling for your comments section */
+  .comments-section {
+    margin-top: 2rem;
+    padding: 1rem;
+    border-top: 1px solid #eee;
+  }
+  #comment-form div {
+    margin-bottom: 1rem;
+  }
+  #comment-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  #comment-form input[type="text"],
+  #comment-form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  #comment-form button {
+    background-color: #007bff;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  #comments-list {
+    list-style: none;
+    padding: 0;
+  }
+  #comments-list li {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+  }
+  #comments-list li strong {
+    color: #333;
+  }
+</style>

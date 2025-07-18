@@ -50,5 +50,12 @@ export default defineConfig({
 	}),
 	vite: {
 		plugins: [tailwindcss()]
+	},
+	
+	image: {
+		// Enable Sharp for image optimization
+		service: {
+			entrypoint: 'astro/assets/services/sharp'
+		}
 	}
 });
