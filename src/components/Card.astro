@@ -7,14 +7,6 @@ interface Props {
 }
 
 const { post } = Astro.props;
-
-// Import the image dynamically based on the src path
-const imagePath = post.frontmatter.image.src.replace('/images/', '');
-// const imageModule = await import(`../../images/${imagePath}`);
-// const imageSrc = imageModule.default;
-
-console.log(`../../${imagePath}`)
-
 ---
 
 <a href={post.url}>

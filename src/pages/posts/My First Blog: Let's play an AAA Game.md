@@ -7,7 +7,7 @@ author: "nicdun"
 isPinned: false
 post_id: 1
 image:
-  src: "/images/black-myth-wukong.jpg"
+  src: "/src/images/black-myth-wukong.jpg"
   alt: "black myth wukong cover image"
 tags: ["tag4", "tag1", "tag2", "tag3"]
 ---

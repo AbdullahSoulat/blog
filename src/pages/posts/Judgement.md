@@ -7,7 +7,7 @@ author: "nicdun"
 isPinned: false
 post_id: 7
 image:
-  src: "/images/steinsgate.png"
+  src: "/src/images/steinsgate.png"
   alt: "some alt text"
 tags: ["tag4", "tag1", "tag2", "tag3"]
 ---

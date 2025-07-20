@@ -7,7 +7,7 @@ author: "nicdun"
 isPinned: false
 post_id: 3
 image:
-  src: "/images/world_disappers.jpg"
+  src: "/src/images/world_disappers.jpg"
   alt: "some alt text"
 tags: ["tag1", "tag2", "tag3"]
 ---

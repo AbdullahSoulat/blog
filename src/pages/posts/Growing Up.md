@@ -7,7 +7,7 @@ author: "nicdun"
 isPinned: false
 post_id: 9
 image:
-  src: "/images/naruto.png"
+  src: "/src/images/naruto.png"
   alt: "some alt text"
 tags: ["tag4", "tag1", "tag2", "tag3"]
 ---

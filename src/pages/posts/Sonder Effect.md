@@ -7,7 +7,7 @@ author: "nicdun"
 isPinned: false
 post_id: 4
 image:
-  src: "/images/silent_voice.jpg"
+  src: "/src/images/silent_voice.jpg"
   alt: "some alt text"
 tags: ["tag1", "tag2", "tag3"]
 ---

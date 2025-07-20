@@ -54,7 +54,7 @@ export default function Comments({ post_id }) {
         <p><button 
               type="submit" 
               class="bg-neutral-950 text-white px-5 py-3 mb-5 hover:cursor-pointer
-                     hover:bg-blue-300 hover:text-neutral-950"
+                     hover:bg-blue-300 hover:text-neutral-950 dark:bg-neutral-200 dark:text-neutral-950"
            >Add Comment</button></p>
       </form>
       <h3 class="pt-6 border-t-2 border-neutral-500 text-lg dark:border-neutral-400">Existing Comments</h3>

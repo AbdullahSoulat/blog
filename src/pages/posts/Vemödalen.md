@@ -7,7 +7,7 @@ author: "nicdun"
 isPinned: false
 post_id: 5
 image:
-  src: "/images/rat_race.jpg"
+  src: "/src/images/rat_race.jpg"
   alt: "some alt text"
 tags: ["tag4", "tag1", "tag2", "tag3"]
 ---

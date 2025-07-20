@@ -7,7 +7,7 @@ author: "nicdun"
 isPinned: false
 post_id: 2
 image:
-  src: "/images/anohana.jpg"
+  src: "/src/images/anohana.jpg"
   alt: "anohana cover image"
 tags: ["tag4", "tag1", "tag2", "tag3"]
 ---

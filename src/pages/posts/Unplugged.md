@@ -7,7 +7,7 @@ author: "nicdun"
 isPinned: false
 post_id: 6
 image:
-  src: "/images/vinland-saga.png"
+  src: "/src/images/vinland-saga.png"
   alt: "some alt text"
 tags: ["tag4", "tag1", "tag2", "tag3"]
 ---

@@ -4,11 +4,11 @@ import Base from '@/layouts/Base.astro';
 import PostHeader from '@/components/PostHeader.astro';
 import PostContent from '@/components/PostContent.astro';
 import Comments from '@/components/Comments';
-import AddComment from '@/components/AddComment.astro';
 
 const { description } = AppConfig;
 
 const { frontmatter } = Astro.props;
+console.log(frontmatter.image.src);
 ---
 
 <Base head={{ title: frontmatter.title, description }}>
@@ -24,6 +24,5 @@ const { frontmatter } = Astro.props;
 		/>
 		<PostContent><slot /></PostContent>
 		<Comments post_id={frontmatter.post_id} client:load/>
-		<!-- <AddComment post_id={frontmatter.post_id} client:visible/> -->
 	</div>
 </Base>
