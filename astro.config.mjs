@@ -42,7 +42,7 @@ export default defineConfig({
     },
 
     integrations: [react(), sitemap()],
-    output: 'server',
+    output: 'hybird',
 
     adapter: netlify({
         imageCDN: false,

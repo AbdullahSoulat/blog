@@ -13,21 +13,23 @@ import { Image } from 'astro:assets';
 					<p>I was born and raised in Pakistan. I spent most of my life in a rural village. Then for my undergrad degree I moved to Hong Kong. I've attached one picture that I took in Pakistan and one that I took in Hong Kong (I'm sure you'll able to tell which one is which 🙂). Currently I'm studying engineering in HKUST (Hong Kong University of Science & Technology). Feel free to get in touch with me!</p>
 				</div>
 				<Image 
-					src="/images/hong-kong-image.jpg" 
+					src="/src/images/hong-kong-image.jpg" 
 					alt="hong kong image" 
 					width="400" 
 					height="400" 
 					loading="lazy"
 					decoding="async"
+					format='avif'
 					class="border-2 border-neutral-950 dark:border-neutral-50 dark:bg-neutral-50"
 				/>
 				<Image 
-					src="/images/pakistan-image.jpg" 
+					src="/src/images/pakistan-image.jpg" 
 					alt="pakistan image" 
 					width="400" 
 					height="400" 
 					loading="lazy"
 					decoding="async"
+					format='avif'
 					class="border-2 border-neutral-950 dark:border-neutral-50 dark:bg-neutral-50"
 				/>
 			</div>
