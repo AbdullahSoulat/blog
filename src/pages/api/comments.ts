@@ -1,6 +1,7 @@
 import { turso } from '../../turso';
+import { APIContext } from 'astro';
 
-export async function GET({ url }) {
+export async function GET({ url } : APIContext) {
   const post_id = url.searchParams.get('post_id');
   if (!post_id) return new Response('Missing post_id', { status: 400 });
 
@@ -11,7 +12,7 @@ export async function GET({ url }) {
   return new Response(JSON.stringify(rows), { status: 200 });
 }
 
-export async function POST({ request }) {
+export async function POST({ request } : APIContext) {
   const data = await request.json();
   const { post_id, author_name, content } = data;
   if (!post_id || !author_name || !content) {
