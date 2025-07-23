@@ -14,10 +14,10 @@ interface Props {
 		src: string;
 		alt: string;
 	};
+	imageObject: any;
 }
 
-const { title, pubDate, minutesRead, img,} = Astro.props;
-
+const { title, pubDate, minutesRead, img, imageObject } = Astro.props;
 const formattedDate = formatDate(pubDate);
 ---
 
@@ -31,7 +31,7 @@ const formattedDate = formatDate(pubDate);
 		</div>
 
 		<Image
-			src={img.src}
+			src={imageObject[img.src]()}
 			alt={img.alt}
 			width={1000}
 			inferSize
@@ -39,14 +39,6 @@ const formattedDate = formatDate(pubDate);
 			class="w-full aspect-[16/9]"
 		/>
 
-		<!-- {img.src ? 
-			<Image
-				src={img.src} 
-				alt={img.alt}
-				format='avif'
-				class="w-full aspect-[16/9]"
-			/> 
-			: null
-		} -->
+		
 	</div>
 </Section>

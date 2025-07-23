@@ -6,8 +6,9 @@ import PostContent from '@/components/PostContent.astro';
 import Comments from '@/components/Comments';
 
 const { description } = AppConfig;
-
 const { frontmatter } = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/images/*.{.jpeg,jpg,png,gif}');
 ---
 
 <Base head={{ title: frontmatter.title, description }}>
@@ -20,8 +21,9 @@ const { frontmatter } = Astro.props;
 			pubDate={frontmatter.pubDate}
 			isPinned={frontmatter.isPinned}
 			img={{ src: frontmatter.image.src, alt: frontmatter.image.alt }}
+			imageObject={images}
 		/>
 		<PostContent><slot /></PostContent>
-		<Comments post_id={frontmatter.post_id} client:load/>
+		<Comments post_id={frontmatter.post_id} client:visible/>
 	</div>
 </Base>
