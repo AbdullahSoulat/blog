@@ -1,12 +1,14 @@
 ---
 import Section from './Section.astro';
 import { Image } from 'astro:assets';
+
+import heroImage from "../images/hero.png";
 ---
 
 <Section>
 	<div class="flex gap-10 md:flex-row flex-col justify-center items-center">
 		<Image 
-			src="/src/images/hero.png" 
+			src={heroImage}
 			alt="Hero" 
 			width="400" 
 			height="400"

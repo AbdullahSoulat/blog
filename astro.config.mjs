@@ -44,9 +44,7 @@ export default defineConfig({
     integrations: [react(), sitemap()],
     output: 'server',
 
-    adapter: netlify({
-        imageCDN: false,
-    }),
+    adapter: netlify(),
     vite: {
         plugins: [tailwindcss()]
     },
