@@ -2,6 +2,9 @@
 import Base from '@/layouts/Base.astro';
 import Section from '@/components/Section.astro';
 import { Image } from 'astro:assets';
+
+import hongKongImage from "../images/hong-kong-image.jpg";
+import pakistanImage from "../images/pakistan-image.jpg";
 ---
 
 <Base head={{ title: 'About', description: 'About me' }}>
@@ -13,7 +16,7 @@ import { Image } from 'astro:assets';
 					<p>I was born and raised in Pakistan. I spent most of my life in a rural village. Then for my undergrad degree I moved to Hong Kong. I've attached one picture that I took in Pakistan and one that I took in Hong Kong (I'm sure you'll able to tell which one is which 🙂). Currently I'm studying engineering in HKUST (Hong Kong University of Science & Technology). Feel free to get in touch with me!</p>
 				</div>
 				<Image 
-					src="/src/images/hong-kong-image.jpg" 
+					src={hongKongImage}
 					alt="hong kong image" 
 					width="400" 
 					height="400" 
@@ -23,7 +26,7 @@ import { Image } from 'astro:assets';
 					class="border-2 border-neutral-950 dark:border-neutral-50 dark:bg-neutral-50"
 				/>
 				<Image 
-					src="/src/images/pakistan-image.jpg" 
+					src={pakistanImage}
 					alt="pakistan image" 
 					width="400" 
 					height="400" 
