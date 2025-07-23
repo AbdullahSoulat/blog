@@ -46,6 +46,7 @@ export const POST: APIRoute = async ({ request }) => {
         <p>You'll receive updates and news from us soon.</p>
       `,
     });
+    console.log(data)
 
     if (error) {
       console.error('Resend error:', error);

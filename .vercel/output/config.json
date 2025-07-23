@@ -1,0 +1,108 @@
+{
+	"version": 3,
+	"routes": [
+		{
+			"handle": "filesystem"
+		},
+		{
+			"src": "^/_astro/(.*)$",
+			"headers": {
+				"cache-control": "public, max-age=31536000, immutable"
+			},
+			"continue": true
+		},
+		{
+			"src": "^/_server-islands/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/_image/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/_actions(?:/(.*?))?/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/404/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/api/comments/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/api/contact/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/api/test/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/imprint/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/posts/Growing Up/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/posts/I'm tired/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/posts/Judgement/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/posts/My First Blog: Let's play an AAA Game/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/posts/Sonder Effect/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/posts/The World Does Disappear When You Close Your Eyes/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/posts/Unplugged/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/posts/Vemödalen/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/posts/We Are All Broken - Friendships/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/posts/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/rss\\.xml/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/tags/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/tags/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/.*$",
+			"dest": "_render",
+			"status": 404
+		}
+	]
+}

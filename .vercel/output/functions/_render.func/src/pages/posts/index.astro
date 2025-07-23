@@ -1,0 +1,34 @@
+---
+import { AppConfig } from '@/utils/AppConfig';
+import Base from '@/layouts/Base.astro';
+import Section from '@/components/Section.astro';
+import Card from '@/components/Card.astro';
+import Heading from '@/components/Heading.astro';
+import { sortPostsByDate } from '@/utils/data.util';
+import { MarkdownInstance } from 'astro';
+
+const { title } = AppConfig;
+const { description } = AppConfig;
+
+const allPosts = Object.values(
+	import.meta.glob('./*.md', { eager: true })
+) as MarkdownInstance<any>[];
+allPosts.sort(sortPostsByDate);
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/images/*.{.jpeg,jpg,png,gif}');
+---
+
+<Base head={{ title, description }}>
+	<Section><Heading title="Posts" /></Section>
+	<Section>
+	<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2">
+		{
+			allPosts.map((post: any) => (
+				<div class="mb-4 basis-1 last:mb-0">
+          			<Card post={post} image={images}/>
+				</div>
+			))
+		}
+	</div>
+	</Section>
+</Base>
