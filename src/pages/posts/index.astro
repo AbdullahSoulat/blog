@@ -25,7 +25,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/images/*.{.jpe
 		{
 			allPosts.map((post: any) => (
 				<div class="mb-4 basis-1 last:mb-0">
-          <Card post={post} image={images}/>
+          			<Card post={post} image={images}/>
 				</div>
 			))
 		}

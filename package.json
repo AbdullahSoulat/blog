@@ -15,7 +15,7 @@
 		"@astrojs/react": "4.2.7",
 		"@astrojs/rss": "4.0.11",
 		"@astrojs/sitemap": "3.4.0",
-		"@astrojs/vercel": "8.1.4",
+		"@astrojs/vercel": "^8.2.3",
 		"@libsql/client": "^0.15.10",
 		"@netlify/blobs": "^8.2.0",
 		"@netlify/functions": "^4.1.12",

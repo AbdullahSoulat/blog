@@ -12,7 +12,6 @@ image:
 tags: ["tag4", "tag1", "tag2", "tag3"]
 ---
 
-
 Man, so much has happened in the last week that I don’t even know where to begin. I’ve technically worked in labor, I’ve gotten lost in the streets of Hong Kong, I’ve had to move out for the second time in two weeks, and I’ve had to fly out of the country.
 
 I’ll start from the beginning. In a previous blog, I believe I already recounted my moving-out story. I thought that was painful enough, but it was nothing compared to what lay ahead of me. The day we had to move off from the second house, we cleaned everything up, sorted out everything, and were waiting for the landlord to come in and check the property. When she came in, that’s when all our problems started (Firas and me).
