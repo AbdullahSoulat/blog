@@ -5,9 +5,9 @@ pubDate: 2025-05-06
 description: "This is the first post of my new Astro blog."
 author: "nicdun"
 isPinned: false
-excerpt: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et
+post_id: 8
 image:
-  src: "/images/i'm_tired.png"
+  src: "/src/images/i'm_tired.png"
   alt: "some alt text"
 tags: ["tag4", "tag1", "tag2", "tag3"]
 ---

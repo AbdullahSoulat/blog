@@ -8,6 +8,7 @@ interface Props {
 }
 
 const { posts } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/images/*.{.jpeg,jpg,png,gif}');
 ---
 
 <Section>
@@ -19,7 +20,7 @@ const { posts } = Astro.props;
 		{
 			posts.map((post: any) => (
 				<div class="">
-					<Card post={post} />
+					<Card post={post} image={images}/>
 				</div>
 			))
 		}

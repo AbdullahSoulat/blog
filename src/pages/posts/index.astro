@@ -14,6 +14,8 @@ const allPosts = Object.values(
 	import.meta.glob('./*.md', { eager: true })
 ) as MarkdownInstance<any>[];
 allPosts.sort(sortPostsByDate);
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/images/*.{.jpeg,jpg,png,gif}');
 ---
 
 <Base head={{ title, description }}>
@@ -23,7 +25,7 @@ allPosts.sort(sortPostsByDate);
 		{
 			allPosts.map((post: any) => (
 				<div class="mb-4 basis-1 last:mb-0">
-					<Card post={post} />
+          <Card post={post} image={images}/>
 				</div>
 			))
 		}
