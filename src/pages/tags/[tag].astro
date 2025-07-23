@@ -57,7 +57,7 @@ const { posts } = Astro.props;
 				.filter((post: any) => post.frontmatter.tags?.includes(tag))
 				.map((post: any) => (
 					<div class="mb-4 basis-1 last:mb-0">
-						<Card post={post} />
+						<Card post={post} image={null}/>
 					</div>
 				))
 		}
