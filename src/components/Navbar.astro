@@ -96,66 +96,64 @@ import Section from './Section.astro';
 </Section>
 
 <script>
-	document.addEventListener("astro:page-load", () => {
-		// Theme switching functionality
-		const lightSwitches = document.querySelectorAll('.light-switch');
+	// Theme switching functionality
+	const lightSwitches = document.querySelectorAll('.light-switch');
 
-		function applyTheme(isDark: boolean) {
-			if (isDark) {
-				document.documentElement.classList.add('dark');
-				localStorage.setItem('theme', 'dark');
+	function applyTheme(isDark: boolean) {
+		if (isDark) {
+			document.documentElement.classList.add('dark');
+			localStorage.setItem('theme', 'dark');
+		} else {
+			document.documentElement.classList.remove('dark');
+			localStorage.setItem('theme', 'light');
+		}
+	}
+
+	if (lightSwitches.length > 0) {
+		// Initialize theme based on localStorage
+		const isDarkTheme = localStorage.getItem('theme') === 'dark';
+		applyTheme(isDarkTheme);
+
+		// Set initial state of switches
+		lightSwitches.forEach((lightSwitch) => {
+			(lightSwitch as HTMLInputElement).checked = isDarkTheme;
+		});
+
+		// Add click event listeners
+		lightSwitches.forEach((lightSwitch) => {
+			(lightSwitch as HTMLInputElement).addEventListener('click', () => {
+				const isChecked = (lightSwitch as HTMLInputElement).checked;
+				// Apply theme
+				applyTheme(isChecked);
+			});
+		});
+	}
+
+	// Mobile menu toggle functionality
+	const mobileMenuButton = document.getElementById('mobile-menu-button');
+	const mobileMenu = document.getElementById('mobile-menu');
+
+	if (mobileMenuButton && mobileMenu) {
+		mobileMenuButton.addEventListener('click', () => {
+			const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true' || false;
+			mobileMenuButton.setAttribute('aria-expanded', (!expanded).toString());
+			mobileMenu.classList.toggle('hidden');
+
+			// Change burger icon to X when menu is open
+			if (!expanded) {
+				mobileMenuButton.innerHTML = `
+					<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+					</svg>
+				`;
 			} else {
-				document.documentElement.classList.remove('dark');
-				localStorage.setItem('theme', 'light');
+				mobileMenuButton.innerHTML = `
+					<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+					</svg>
+				`;
 			}
-		}
+		});
+	}
 
-		if (lightSwitches.length > 0) {
-			// Initialize theme based on localStorage
-			const isDarkTheme = localStorage.getItem('theme') === 'dark';
-			applyTheme(isDarkTheme);
-
-			// Set initial state of switches
-			lightSwitches.forEach((lightSwitch) => {
-				(lightSwitch as HTMLInputElement).checked = isDarkTheme;
-			});
-
-			// Add click event listeners
-			lightSwitches.forEach((lightSwitch) => {
-				(lightSwitch as HTMLInputElement).addEventListener('click', () => {
-					const isChecked = (lightSwitch as HTMLInputElement).checked;
-					// Apply theme
-					applyTheme(isChecked);
-				});
-			});
-		}
-
-		// Mobile menu toggle functionality
-		const mobileMenuButton = document.getElementById('mobile-menu-button');
-		const mobileMenu = document.getElementById('mobile-menu');
-
-		if (mobileMenuButton && mobileMenu) {
-			mobileMenuButton.addEventListener('click', () => {
-				const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true' || false;
-				mobileMenuButton.setAttribute('aria-expanded', (!expanded).toString());
-				mobileMenu.classList.toggle('hidden');
-
-				// Change burger icon to X when menu is open
-				if (!expanded) {
-					mobileMenuButton.innerHTML = `
-						<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-							<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-						</svg>
-					`;
-				} else {
-					mobileMenuButton.innerHTML = `
-						<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-							<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-						</svg>
-					`;
-				}
-			});
-		}
-	})
-	
 </script>
