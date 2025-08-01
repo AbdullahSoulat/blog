@@ -5,9 +5,22 @@ const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
 export const POST: APIRoute = async ({ request }) => {
   try {
-    // Uncomment these lines to see your audiences, then comment them back out
-    // const audiences = await resend.audiences.list();
-    // console.log('Your audiences:', audiences.data?.data);
+    // Check if environment variables are set
+    if (!import.meta.env.RESEND_API_KEY) {
+      console.error('RESEND_API_KEY is not set');
+      return new Response(JSON.stringify({ error: 'Server configuration error' }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+
+    if (!import.meta.env.RESEND_AUDIENCE_ID) {
+      console.error('RESEND_AUDIENCE_ID is not set');
+      return new Response(JSON.stringify({ error: 'Server configuration error' }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
 
     const formData = await request.formData();
     const email = formData.get('email') as string;
@@ -28,12 +41,12 @@ export const POST: APIRoute = async ({ request }) => {
       });
     }
 
-    // Add to contact form
-   resend.contacts.create({
-    email: email,
-    unsubscribed: false,
-    audienceId: import.meta.env.RESEND_AUDIENCE_ID!,
-   }); 
+    // Add to contact form - FIXED: Added await
+    await resend.contacts.create({
+      email: email,
+      unsubscribed: false,
+      audienceId: import.meta.env.RESEND_AUDIENCE_ID,
+    }); 
 
     // Send welcome email
     const { data, error } = await resend.emails.send({
@@ -46,7 +59,6 @@ export const POST: APIRoute = async ({ request }) => {
         <p>You'll receive updates and news from us soon.</p>
       `,
     });
-    console.log(data)
 
     if (error) {
       console.error('Resend error:', error);
@@ -55,9 +67,6 @@ export const POST: APIRoute = async ({ request }) => {
         headers: { 'Content-Type': 'application/json' }
       });
     }
-
-    // Here you might also want to save the email to a database
-    // For now, we'll just return success
 
     return new Response(JSON.stringify({ 
       success: true, 

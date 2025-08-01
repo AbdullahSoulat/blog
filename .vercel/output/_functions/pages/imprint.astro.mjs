@@ -1,6 +1,6 @@
-import { a as createComponent, d as renderComponent, r as renderTemplate, m as maybeRenderHead } from '../chunks/astro/server_1lYeUgex.mjs';
+import { a as createComponent, d as renderComponent, r as renderTemplate, m as maybeRenderHead } from '../chunks/astro/server_CuAn_-OB.mjs';
 import 'kleur/colors';
-import { $ as $$Base, a as $$Section, A as AppConfig } from '../chunks/Base_BRSuc5Ev.mjs';
+import { $ as $$Base, a as $$Section, A as AppConfig } from '../chunks/Base_CqsbpIij.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Imprint = createComponent(($$result, $$props, $$slots) => {
