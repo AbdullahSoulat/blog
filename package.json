@@ -14,7 +14,7 @@
 		"@astrojs/react": "4.2.7",
 		"@astrojs/rss": "4.0.11",
 		"@astrojs/sitemap": "3.4.0",
-		"@astrojs/vercel": "^8.2.3",
+		"@astrojs/vercel": "^8.2.4",
 		"@libsql/client": "^0.15.10",
 		"@tailwindcss/vite": "4.1.11",
 		"@types/react": "19.1.8",
