@@ -5,6 +5,7 @@ import vercel  from '@astrojs/vercel';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
+import netlify from '@astrojs/netlify';
 const options = {
     // Specify the theme to use or a custom theme json, in our case
     // it will be a moonlight-II theme from
@@ -43,7 +44,7 @@ export default defineConfig({
     integrations: [react(), sitemap()],
     output: 'server',
 
-    adapter: vercel(),
+    adapter: netlify(),
     vite: {
         plugins: [tailwindcss()]
     },
