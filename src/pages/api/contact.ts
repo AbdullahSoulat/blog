@@ -49,7 +49,7 @@ export const POST: APIRoute = async ({ request }) => {
     }); 
 
     // Send welcome email
-    const { data, error } = await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: "Abdullah Bin Soulat <signup@abdullahsoulat.com>", // Replace with your verified domain
       to: [email],
       subject: 'Welcome to our newsletter!',
